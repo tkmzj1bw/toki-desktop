@@ -1,5 +1,7 @@
 # HANDOFF — TOKI desktop (retomar em outro computador)
 
+Repo: https://github.com/tkmzj1bw/toki-desktop — clone com `git clone https://github.com/tkmzj1bw/toki-desktop.git`.
+
 Ao abrir o OpenCode na pasta clonada, envie esta mensagem:
 > "Leia `HANDOFF.md` e `DESKTOP.md` e continue de onde parou."
 
