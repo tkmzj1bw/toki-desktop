@@ -1,4 +1,9 @@
 node_modules
 release/*.zip
 release/SHA256SUMS.txt
+src-tauri/target/
+src-tauri/gen/
+rust/**/target/
+*.tsbuildinfo
+.rust-anything-original.mjs
 

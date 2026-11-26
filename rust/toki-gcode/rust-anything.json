@@ -1,0 +1,242 @@
+{
+  "schema": "rust-anything/bridge@1",
+  "root": "C:\\Users\\kauan\\Desktop\\Toki-clone",
+  "unit": "src/lib/",
+  "language": "ts",
+  "kind": "napi",
+  "crate_name": "toki-gcode",
+  "exports": [
+    {
+      "name": "shapeToPoints",
+      "file": "src/lib/geometry.ts",
+      "line": 18,
+      "params": [
+        {
+          "name": "shape",
+          "ts_type": "VectorShape",
+          "optional": false,
+          "rest": false
+        },
+        {
+          "name": "_doc",
+          "ts_type": "DrawingDoc",
+          "optional": false,
+          "rest": false
+        }
+      ],
+      "returns": "Point2[]",
+      "is_async": false,
+      "is_generator": false,
+      "type_params": [],
+      "uses_instanceof": false
+    },
+    {
+      "name": "buildSegments",
+      "file": "src/lib/geometry.ts",
+      "line": 50,
+      "params": [
+        {
+          "name": "doc",
+          "ts_type": "DrawingDoc",
+          "optional": false,
+          "rest": false
+        }
+      ],
+      "returns": "PathSegment[]",
+      "is_async": false,
+      "is_generator": false,
+      "type_params": [],
+      "uses_instanceof": false
+    },
+    {
+      "name": "clampToBed",
+      "file": "src/lib/geometry.ts",
+      "line": 107,
+      "params": [
+        {
+          "name": "point",
+          "ts_type": "Point2",
+          "optional": false,
+          "rest": false
+        },
+        {
+          "name": "doc",
+          "ts_type": "DrawingDoc",
+          "optional": false,
+          "rest": false
+        }
+      ],
+      "returns": "Point2",
+      "is_async": false,
+      "is_generator": false,
+      "type_params": [],
+      "uses_instanceof": false
+    },
+    {
+      "name": "toGcode",
+      "file": "src/lib/geometry.ts",
+      "line": 112,
+      "params": [
+        {
+          "name": "doc",
+          "ts_type": "DrawingDoc",
+          "optional": false,
+          "rest": false
+        },
+        {
+          "name": "rig",
+          "ts_type": "RigState",
+          "optional": true,
+          "rest": false
+        }
+      ],
+      "returns": "string",
+      "is_async": false,
+      "is_generator": false,
+      "type_params": [],
+      "uses_instanceof": false
+    },
+    {
+      "name": "round",
+      "file": "src/lib/utils.ts",
+      "line": 7,
+      "params": [
+        {
+          "name": "value",
+          "ts_type": "number",
+          "optional": false,
+          "rest": false
+        },
+        {
+          "name": "digits",
+          "ts_type": "number",
+          "optional": true,
+          "rest": false
+        }
+      ],
+      "returns": "number",
+      "is_async": false,
+      "is_generator": false,
+      "type_params": [],
+      "uses_instanceof": false
+    }
+  ],
+  "classes": [],
+  "js_only": [
+    {
+      "name": "createEmptyDoc",
+      "file": "src/lib/defaults.ts",
+      "line": 101,
+      "reason": "kept on request"
+    },
+    {
+      "name": "createDemoDoc",
+      "file": "src/lib/defaults.ts",
+      "line": 114,
+      "reason": "kept on request"
+    },
+    {
+      "name": "createDemoProject",
+      "file": "src/lib/defaults.ts",
+      "line": 160,
+      "reason": "kept on request"
+    },
+    {
+      "name": "segmentLength",
+      "file": "src/lib/geometry.ts",
+      "line": 73,
+      "reason": "kept on request"
+    },
+    {
+      "name": "totalDistance",
+      "file": "src/lib/geometry.ts",
+      "line": 76,
+      "reason": "kept on request"
+    },
+    {
+      "name": "documentStats",
+      "file": "src/lib/geometry.ts",
+      "line": 79,
+      "reason": "kept on request"
+    },
+    {
+      "name": "pointOnSegment",
+      "file": "src/lib/geometry.ts",
+      "line": 102,
+      "reason": "kept on request"
+    },
+    {
+      "name": "importSvg",
+      "file": "src/lib/svgImport.ts",
+      "line": 61,
+      "reason": "kept on request"
+    },
+    {
+      "name": "uid",
+      "file": "src/lib/utils.ts",
+      "line": 1,
+      "reason": "kept on request"
+    },
+    {
+      "name": "clamp",
+      "file": "src/lib/utils.ts",
+      "line": 4,
+      "reason": "kept on request"
+    },
+    {
+      "name": "formatClock",
+      "file": "src/lib/utils.ts",
+      "line": 12,
+      "reason": "kept on request"
+    },
+    {
+      "name": "formatDate",
+      "file": "src/lib/utils.ts",
+      "line": 15,
+      "reason": "kept on request"
+    },
+    {
+      "name": "formatDateTime",
+      "file": "src/lib/utils.ts",
+      "line": 18,
+      "reason": "kept on request"
+    },
+    {
+      "name": "formatDuration",
+      "file": "src/lib/utils.ts",
+      "line": 21,
+      "reason": "kept on request"
+    },
+    {
+      "name": "formatBytes",
+      "file": "src/lib/utils.ts",
+      "line": 30,
+      "reason": "kept on request"
+    },
+    {
+      "name": "downloadText",
+      "file": "src/lib/utils.ts",
+      "line": 37,
+      "reason": "kept on request"
+    },
+    {
+      "name": "readTextFile",
+      "file": "src/lib/utils.ts",
+      "line": 49,
+      "reason": "kept on request"
+    },
+    {
+      "name": "severityWeight",
+      "file": "src/lib/utils.ts",
+      "line": 57,
+      "reason": "kept on request"
+    },
+    {
+      "name": "sleep",
+      "file": "src/lib/utils.ts",
+      "line": 62,
+      "reason": "kept on request"
+    }
+  ],
+  "float_tolerance": 1e-9
+}

@@ -3,7 +3,8 @@ import { useTokiStore } from '@/store/useTokiStore';
 import { PlotCanvas } from '@/components/viz/PlotCanvas';
 import { MachineInspector } from '@/components/viz/MachineInspector';
 import { Icon, type IconName } from '@/components/ui/Icon';
-import { buildSegments, documentStats, toGcode } from '@/lib/geometry';
+import { buildSegments, documentStats } from '@/lib/geometry';
+import { exportGcode } from '@/lib/gcode';
 import { importSvg } from '@/lib/svgImport';
 import { clamp, downloadText, readTextFile } from '@/lib/utils';
 import type { DrawingDoc, ToolId } from '@/types';
@@ -151,10 +152,10 @@ export function PlotStudio(): JSX.Element {
         }
         return `<polyline points="${points}" fill="none" stroke="${shape.stroke}" stroke-width="${shape.width}"/>`;
       })
-      .join('/n');
+      .join('\n');
     downloadText(
-      `${(activeProject?.name ?? 'toki-drawing').replace(/[^/w-]/g, '_')}.svg`,
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${doc.bed.width} ${doc.bed.height}">/n${body}/n</svg>`,
+      `${(activeProject?.name ?? 'toki-drawing').replace(/[^\w-]/g, '_')}.svg`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${doc.bed.width} ${doc.bed.height}">\n${body}\n</svg>`,
       'image/svg+xml',
     );
   };
@@ -402,14 +403,14 @@ export function PlotStudio(): JSX.Element {
               <div className="row-between" style={{ marginTop: 8 }}><span className="muted">Segmentos</span><span className="mono">{stats.segments}</span></div>
               <div className="divider" style={{ margin: '12px 0' }} />
               <div className="row" style={{ flexWrap: 'wrap' }}>
-                <button type="button" className="btn btn-sm" onClick={() => downloadText(`${(activeProject?.name ?? 'toki-job').replace(/[^/w-]/g, '_')}.gcode`, toGcode(doc, rig), 'text/plain')}>
+                <button type="button" className="btn btn-sm" onClick={async () => downloadText(`${(activeProject?.name ?? 'toki-job').replace(/[^\w-]/g, '_')}.gcode`, await exportGcode(doc, rig), 'text/plain')}>
                   <Icon name="download" size={12} /> G-CODE
                 </button>
                 <button type="button" className="btn btn-sm" onClick={exportSvg}><Icon name="download" size={12} /> SVG</button>
                 <button
                   type="button"
                   className="btn btn-sm"
-                  onClick={() => downloadText(`${(activeProject?.name ?? 'toki-project').replace(/[^/w-]/g, '_')}.json`, JSON.stringify({ doc }, null, 2))}
+                  onClick={() => downloadText(`${(activeProject?.name ?? 'toki-project').replace(/[^\w-]/g, '_')}.json`, JSON.stringify({ doc }, null, 2))}
                 >
                   <Icon name="download" size={12} /> JSON
                 </button>

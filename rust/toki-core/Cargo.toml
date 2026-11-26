@@ -1,0 +1,17 @@
+[package]
+name = "toki-core"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77.2"
+publish = false
+description = "Pure Rust logic shared by the Tauri desktop app and the rust-anything bridge"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+serde = "1"
+serde_json = { version = "1", features = ["preserve_order", "float_roundtrip", "unbounded_depth"] }
+
+[profile.release]
+lto = true
